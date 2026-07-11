@@ -13,6 +13,6 @@ public class MathFuction {
         System.out.println(Math.sqrt(c));
         System.out.println(Math.pow(a,2));
         // Hàm làm tròn
-        System.out.println(Math.round(1.911111111))// Hàm làm tròn nếu hàng thập phân >5 làm tròn lên ngược lại làm tròn xuống;
+        System.out.println(Math.round(1.911111111));// Hàm làm tròn nếu hàng thập phân >5 làm tròn lên ngược lại làm tròn xuống;
     }
 }
