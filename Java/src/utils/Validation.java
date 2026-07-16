@@ -1,4 +1,4 @@
-package Lab.Lab4;
+package utils;
 
 public class Validation {
 
@@ -27,7 +27,7 @@ public class Validation {
         }
 
         public static double validateOrDefault(double value,boolean isInteger){
-            return validateOrDefault(value, -Double.MAX_EXPONENT,Double.MAX_VALUE,isInteger);
+            return validateOrDefault(value, -Double.MAX_VALUE,Double.MAX_VALUE,isInteger);
         }
         public static double validateOrDefault(double value,double min, boolean isInteger){
             return validateOrDefault(value,min,Double.MAX_VALUE,isInteger);

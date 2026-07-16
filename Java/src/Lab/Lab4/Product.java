@@ -1,5 +1,7 @@
 package Lab.Lab4;
 
+import utils.Validation;
+
 public class Product {
 
     private String name;
