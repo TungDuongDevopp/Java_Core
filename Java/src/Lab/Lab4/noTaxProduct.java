@@ -1,4 +1,4 @@
-package Lab4;
+package Lab.Lab4;
 
 public class noTaxProduct extends Product {
     // Constructor con gọi lại Constructor cha thông qua super()

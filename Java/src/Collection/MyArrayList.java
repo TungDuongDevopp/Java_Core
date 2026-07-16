@@ -1,6 +1,8 @@
+package Collection;
+
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Scanner;
+
 
 public class MyArrayList {
     public static void main(String[] args) {

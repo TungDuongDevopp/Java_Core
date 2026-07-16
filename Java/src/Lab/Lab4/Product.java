@@ -1,4 +1,4 @@
-package Lab4;
+package Lab.Lab4;
 
 public class Product {
 
