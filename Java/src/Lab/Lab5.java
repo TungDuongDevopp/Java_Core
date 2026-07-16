@@ -13,8 +13,7 @@ public class Lab5 {
        double sum = 0;
 
         while(true){
-            System.out.print("Mời bạn nhập 1 số bất kỳ: ");
-            nums.add(Validation.validateOrDefault(sc.nextDouble(),false));
+            nums.add(Validation.getValidDouble("Mời bạn nhập một số bất kỳ: ",false));
             sc.nextLine();
             if(!confirm(sc)) break;
             System.out.println("Mời bạn tiếp tục!");

@@ -1,5 +1,4 @@
 package Lab.Lab4;
-
 import utils.Validation;
 
 public class Product {
@@ -20,7 +19,11 @@ public class Product {
 
 
     public void setTax(double tax) {
-        this.tax = Validation.validateOrDefault(tax,0,100,false);
+
+        if(!Validation.isValidDouble(tax,0,100,false)){
+            throw new IllegalArgumentException("Thuế phải nằm trong khoảng 0-100%");
+        }
+        this.tax = tax;
     }
 
     public double getPrice() {
@@ -28,7 +31,10 @@ public class Product {
     }
 
     public void setPrice(double price) {
-        this.price = Validation.validateOrDefault(price,0,1000000000,false);
+        if(!Validation.isValidDouble(price,0,10000000000f,false)){
+            throw new IllegalArgumentException("Tiền phải nằm trong khoảng 0-10 tỷ");
+        }
+        this.price = price;
     }
 
     public String getName() {
@@ -36,7 +42,10 @@ public class Product {
     }
 
     public void setName(String name) {
-        this.name = Validation.validateStringOrDefault(name,"Chưa nhập");
+        if(!Validation.isValidString(name)){
+            throw new IllegalArgumentException("Tên sản phẩm không được bỏ trống");
+        }
+        this.name = name;
     }
 
     public double getDiscount() {
@@ -44,14 +53,17 @@ public class Product {
     }
 
     public void setDiscount(double discount) {
-        this.discount = Validation.validateOrDefault(discount,0,100,true);
+        if(!Validation.isValidDouble(discount,0,100,false)){
+            throw new IllegalArgumentException("Giảm giá phải nằm trong khoảng 0-100%");
+        }
+        this.discount = discount;
     }
 
     public double getTax(){
         return getDiscountedPrice() * this.tax / 100;
     }
-    public double getPriceIncludingTax() {
-        return this.price + getTax();
+    public double getTotal() {
+        return getDiscountedPrice() + getTax();
     }
     public double getDiscountedPrice() {
         return this.price * (1 - this.discount / 100);
@@ -69,6 +81,6 @@ public class Product {
     public String toString() {
         String cateName = (category != null) ? category.getCategoryName() : "Không có";
         return String.format("Product [ Danh mục: %s|Name: %s| Price: %.1f| Tax: %.1f%%| Discount: %.1f%%| Total: %.1f]",
-               this.category,this.name, this.price, this.tax,this.discount,getPriceIncludingTax());
+               this.category,this.name, this.price, this.tax,this.discount,getTotal());
     }
 }

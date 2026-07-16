@@ -17,7 +17,10 @@ public class Category {
 
     public void setCategoryName(String categoryName) {
         // Áp dụng luôn hàm validate chuỗi rỗng của bạn
-        this.categoryName = Validation.validateStringOrDefault(categoryName, "Danh mục chung");
+        if(!Validation.isValidString(categoryName)){
+            throw new IllegalArgumentException("Tên danh mục sản phẩm không được bỏ trống");
+        }
+        this.categoryName = categoryName;
     }
 
     @Override

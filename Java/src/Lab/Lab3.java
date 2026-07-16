@@ -1,18 +1,17 @@
 package Lab;
+import utils.Validation;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class Lab3 {
     public static void main(String[] args) {
         int n ;
-        Scanner sc= new Scanner(System.in);
-        System.out.print("Mời bạn nhập 1 số nguyên bất kỳ: ");
-        n = sc.nextInt();
+        n = (int)Validation.getValidDouble("Mời bạn nhập số nguyên dương bất kỳ: ",0,true);
 
         int [] arr = new int[n];
         for(int i = 0;i<n;i++){
-            System.out.format("\nMời nhập phần tử thứ %d: ",i+1);
-            arr[i] = sc.nextInt();
+            arr[i] = (int)Validation.getValidDouble(String.format("Mời bạn nhập số thứ %d: ",i+1),true);
         }
         System.out.format("\nMảng ban đầu: %s",Arrays.toString(arr));
         Arrays.sort(arr);

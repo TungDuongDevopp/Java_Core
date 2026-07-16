@@ -1,27 +1,27 @@
 package Lab;
+import utils.Validation;
+
 import java.util.Scanner;
 public class Lab2 {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int choice;
-        System.out.println(">>    MỜI CHỌN TÍNH NĂNG    <<");
-        System.out.println("++--------------------------++");
-        System.out.println("|1. Giải phương trình bậc nhất");
-        System.out.println("|2. Giải phương trình bậc hai ");
-        System.out.println("|3. Tính tiền điện            ");
-        System.out.println("|4. Kết thúc                  ");
-        System.out.println("++--------------------------++");
-
-
+        System.out.println();
+        System.out.println("""
+    +-----------------------------------------+
+    | Mời bạn chọn chức năng:                 |
+    +-----------------------------------------+
+    | 1. Tìm nghiệm phương trình bậc nhất     |
+    | 2. Tìm nghiệm phương trình bậc hai      |
+    | 3. Tính tiền điện                       |
+    | 4. Thoát                                |
+    +-----------------------------------------+
+    """);
         menuLoop: while(true){
-            choice = sc.nextInt();
+            int choice = (int)Validation.getValidDouble("Mời bạn nhập số: ",1,4,true);
             switch (choice){
                 case 1:
                     int a,b;
-                    System.out.println("Mời nhập số a: ");
-                    a = sc.nextInt();
-                    System.out.println("Mời nhập số b: ");
-                    b = sc.nextInt();
+                    a = (int) Validation.getValidDouble("Mời bạn nhập só thứ nhất: ",true);
+                    b = (int) Validation.getValidDouble("Mời bạn nhập só thứ hai: ",true);
                     double result = timNghiemBacNhat(a,b);
                     if(result==Double.POSITIVE_INFINITY) System.out.print("Phương trình vô số nghiệm!");
                     else if (result==Double.NaN) {
@@ -33,23 +33,17 @@ public class Lab2 {
                     break;
                 case 2:
                     int a1,b1,c1;
-                    System.out.println("Mời nhập số a: ");
-                    a1 = sc.nextInt();
-                    System.out.println("Mời nhập số b: ");
-                    b1 = sc.nextInt();
-                    System.out.println("Mời nhập số c: ");
-                    c1 = sc.nextInt();
+                    a1 = (int) Validation.getValidDouble("Mời bạn nhập só thứ nhất: ",true);
+                    b1 = (int) Validation.getValidDouble("Mời bạn nhập só thứ hai: ",true);
+                    c1 = (int) Validation.getValidDouble("Mời bạn nhập só thứ ba: ",true);
                     timNghiemBacHai(a1,b1,c1);
                     break;
-
                 case 3:
                     int soDien;
-                    System.out.println("Mời nhập số điện");
-                    soDien= sc.nextInt();
+                    soDien = (int)Validation.getValidDouble("Mời bạn nhập số điện: ",0,true);
                     double sotien= tinhTienDien(soDien);
                     System.out.format("Số tiền bạn phải trả là: %.1f",sotien);
                     break;
-
                 case 4:
                     System.out.println("Bạn đã thoát chương trình!");
                     break menuLoop;
