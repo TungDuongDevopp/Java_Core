@@ -6,12 +6,13 @@ public class Product {
     private double price;
     private double tax;
     private double discount;
-
-    public Product(String name,double price,double tax,double discount){
+    private Category category;
+    public Product(String name,double price,double tax,double discount,Category category){
         setName(name);
         setPrice(price);
         setTax(tax);
         setDiscount(discount);
+        this.category = category;
     }
     public Product(){}
 
@@ -54,10 +55,18 @@ public class Product {
         return this.price * (1 - this.discount / 100);
     }
 
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 
     @Override
     public String toString() {
-        return String.format("Product [Name: %s, Price: %.1f, Tax: %.1f%%, Discount: %.1f%%, Total: %.1f]",
-                this.name, this.price, this.tax,this.discount,getPriceIncludingTax());
+        String cateName = (category != null) ? category.getCategoryName() : "Không có";
+        return String.format("Product [ Danh mục: %s|Name: %s| Price: %.1f| Tax: %.1f%%| Discount: %.1f%%| Total: %.1f]",
+               this.category,this.name, this.price, this.tax,this.discount,getPriceIncludingTax());
     }
 }

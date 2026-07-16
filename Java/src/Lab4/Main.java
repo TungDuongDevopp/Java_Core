@@ -4,24 +4,19 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner sc= new Scanner(System.in);
-        Product product = new Product();
-        String name;
-        int discount;
-        double price,tax;
-        System.out.println("Mời nhập tên sản phẩm: ");
-        name = sc.nextLine();
-        System.out.println("Mời nhập giá sản phẩm: ");
-        price = sc.nextDouble();
-        System.out.println("Mời nhập thuế sản phẩm: ");
-        tax = sc.nextDouble();
-        System.out.println("Mời nhập  % giảm giá: ");
-        discount = sc.nextInt();
-        product.setName(name);
-        product.setPrice(price);
-        product.setTax(tax);
-        product.setDiscount(discount);
-        System.out.println(product);
+        // 1. Tạo các danh mục trước
+        Category dienTu = new Category("Điện tử");
+        Category sach = new Category("Sách giáo khoa");
+
+        // 2. Tạo sản phẩm thông thường (Có thuế 10%)
+        Product laptop = new Product("Laptop Dell", 15000000, 10,0, dienTu);
+
+        // 3. Tạo sản phẩm ĐƯỢC KẾ THỪA - Không tính thuế
+        Product sachToan = new noTaxProduct("Sách Toán Lớp 10", 50000,0, sach);
+
+        // In kết quả kiểm tra tính đa hình (Polymorphism)
+        System.out.println(laptop);
+        System.out.println(sachToan);
 
     }
 }
