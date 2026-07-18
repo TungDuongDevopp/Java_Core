@@ -1,8 +1,10 @@
 package utils;
 
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class Validation {
+
     private static final Scanner sc = new Scanner(System.in);
 
     public static boolean isValidDouble(double value, double min, double max, boolean isInteger) {
@@ -38,9 +40,11 @@ public class Validation {
     public static double getValidDouble(String prompt,double min,boolean isInterger){
         return getValidDouble(prompt,min,Double.MAX_VALUE,isInterger);
     }
+
     public static double getValidDouble(String prompt,boolean isInterger){
         return getValidDouble(prompt,-Double.MAX_VALUE,Double.MAX_VALUE,isInterger);
     }
+
     public static String getValidString(String prompt){
         String input;
         do {
@@ -49,6 +53,11 @@ public class Validation {
         }while (!isValidString(input));
         return input;
     }
+
+
+
+
+
 }
 
 

@@ -1,4 +1,4 @@
-import java.util.regex.Pattern;
+import utils.Validator.PhoneValidator;
 
 public class Regular_Expression {
     public static void main(String[] args) {
@@ -18,10 +18,7 @@ public class Regular_Expression {
            ^...$: Start end
          */
         String phone = "0323456789";
-
-        String regex = "^(03|05|07|09)\\d{8}$";
-
-        boolean isValid = Pattern.matches(regex, phone);
+        boolean isValid = PhoneValidator.isValidPhone(phone) ;
 
         if (isValid) {
             System.out.println("Số điện thoại hợp lệ");
