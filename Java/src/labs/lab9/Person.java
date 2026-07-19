@@ -9,7 +9,7 @@ abstract class Person implements IPerson{
         setId(id);
         setName(name);
     }
-
+    public Person(){}
     public int getAge() {
         return age;
     }
