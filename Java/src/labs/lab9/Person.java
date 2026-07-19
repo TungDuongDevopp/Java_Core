@@ -1,15 +1,14 @@
 package labs.lab9;
 import utils.validator.ValidationInput;
-public class Person implements IPerson{
-
+abstract class Person implements IPerson{
+    protected String name;
     protected String id;
-
+    protected int age;
     public Person(String id, String name, int age) {
         setAge(age);
         setId(id);
         setName(name);
     }
-    public Person(){}
 
     public int getAge() {
         return age;
@@ -43,10 +42,6 @@ public class Person implements IPerson{
         }
         this.name = name;
     }
-
-    protected String name;
-    protected int age;
-
 
 
     @Override
