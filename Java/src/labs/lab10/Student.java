@@ -1,24 +1,21 @@
-package oop.encapsulation;
+package labs.lab10;
 
+import utils.validator.ValidationInput;
 import utils.validator.NameValidator;
-
 public class Student {
     private String name;
-    private int age;
     private String id;
-
-    public Student( String id, String name,int age) {
-        this.age = age;
-        this.id = id;
-        this.name = name;
-    }
+    private int age;
+    private double score;
     public Student(){}
-
     public int getAge() {
         return age;
     }
 
     public void setAge(int age) {
+        if(!ValidationInput.isValidDouble(age,18,99,false)){
+            throw new IllegalArgumentException("Tuổi phải nằm trong khoảng 18-99");
+        }
         this.age = age;
     }
 
@@ -27,6 +24,9 @@ public class Student {
     }
 
     public void setId(String id) {
+        if(!ValidationInput.isValidString(id)){
+            throw new IllegalArgumentException("Id không được để trống");
+        }
         this.id = id;
     }
 
@@ -41,12 +41,24 @@ public class Student {
         this.name = name;
     }
 
+    public double getScore() {
+        return score;
+    }
+
+    public void setScore(double score) {
+        if(!ValidationInput.isValidDouble(score,0,10,false)){
+            throw new IllegalArgumentException("Điểm phải nằm trong khoảng 0-10");
+        }
+        this.score = score;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
                 "age=" + age +
                 ", name='" + name + '\'' +
                 ", id='" + id + '\'' +
+                ", score=" + score +
                 '}';
     }
 }

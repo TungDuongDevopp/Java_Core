@@ -6,11 +6,11 @@ import java.util.Arrays;
 public class Lab3 {
     public static void main(String[] args) {
         int n ;
-        n = (int) ValidationInput.getValidDouble("Mời bạn nhập số nguyên dương bất kỳ: ",0,true);
+        n = ValidationInput.getValidInt("Mời bạn nhập số nguyên dương bất kỳ: ",0);
 
         int [] arr = new int[n];
         for(int i = 0;i<n;i++){
-            arr[i] = (int) ValidationInput.getValidDouble(String.format("Mời bạn nhập số thứ %d: ",i+1),true);
+            arr[i] = ValidationInput.getValidInt(String.format("Mời bạn nhập số thứ %d: ",i+1));
         }
         System.out.format("\nMảng ban đầu: %s",Arrays.toString(arr));
         Arrays.sort(arr);

@@ -1,4 +1,5 @@
 package labs.lab9;
+import utils.validator.NameValidator;
 import utils.validator.ValidationInput;
 abstract class Person implements IPerson{
     protected String name;
@@ -37,8 +38,8 @@ abstract class Person implements IPerson{
     }
 
     public void setName(String name) {
-        if(!ValidationInput.isValidString(name)){
-            throw new IllegalArgumentException("Tên không được để trống!");
+        if(!NameValidator.isValidName(name)){
+            throw new IllegalArgumentException("Name không hợp lệ!");
         }
         this.name = name;
     }
@@ -48,7 +49,7 @@ abstract class Person implements IPerson{
     public void input() {
         id = ValidationInput.getValidString("Mời bạn nhập id: ");
         name = ValidationInput.getValidString("Mời bạn nhập name: ");
-        age = (int)ValidationInput.getValidDouble("Mời bạn nhập tuổi: ",0,100,true);
+        age = ValidationInput.getValidInt("Mời bạn nhập tuổi: ",0,100);
     }
 
     @Override

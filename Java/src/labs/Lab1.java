@@ -18,19 +18,19 @@ public class Lab1 {
     | 4. Thoát                                |
     +-----------------------------------------+
     """);
-            int choice = (int) ValidationInput.getValidDouble("Mời bạn nhập số: ",1,4,true);
+            int choice = ValidationInput.getValidInt("Mời bạn nhập số: ",1,4);
             switch (choice){
                 case 1:
                     String name;
                     double gpa;
                     name = ValidationInput.getValidString("Mời nhập têm: ");
-                    gpa = ValidationInput.getValidDouble("\nMời nhập điểm: ",0,10,false);
+                    gpa = ValidationInput.getValidDouble("\nMời nhập điểm: ",0,10);
                     System.out.format("\n%s có điểm %.1f",name,gpa);
                     break;
                 case 2:
                     double width,height,area,perimeter;
-                    height= ValidationInput.getValidDouble("Mời nhập chiều dài hình chữ nhật: ",0,false);
-                    width= ValidationInput.getValidDouble("\nMời nhập chiều rộng hình chữ nhật: ",0,false);
+                    height= ValidationInput.getValidDouble("Mời nhập chiều dài hình chữ nhật: ",0);
+                    width= ValidationInput.getValidDouble("\nMời nhập chiều rộng hình chữ nhật: ",0);
                     area = getArea(width,height);
                     perimeter = getPerimeter(width,height);
                     System.out.format("Chu vi hình chuw nhật là: %.2f",perimeter);
@@ -39,7 +39,7 @@ public class Lab1 {
                     break;
                 case 3:
                     double a,volume;
-                    a = ValidationInput.getValidDouble("Mời nhập cạnh hình lập phương: ",0,false);
+                    a = ValidationInput.getValidDouble("Mời nhập cạnh hình lập phương: ",0);
                     volume = getVolumn(a);
                     System.out.format("\nThể tích hình lập phương có cạnh %.1f là %.2f",a,volume);
                     break;
@@ -48,11 +48,6 @@ public class Lab1 {
                     break menuLoop;
             }
         }
-
-
-
-
-
 
     }
     private static double getPerimeter(double width,double height){

@@ -6,18 +6,7 @@ public class ValidationInput {
 
     private static final Scanner sc = new Scanner(System.in);
 
-    public static boolean isValidDouble(double value, double min, double max, boolean isInteger) {
-        if (Double.isNaN(value) || Double.isInfinite(value)) return false;
-        if (isInteger && value % 1 != 0) return false;
-        if (value < min || value > max) return false;
-        return true;
-    }
-
-    public static boolean isValidString(String value) {
-        return value != null && !value.isBlank();
-    }
-
-    public static double getValidDouble(String prompt, double min, double max, boolean isInteger) {
+    private static double getNumber(String prompt, double min,double max,boolean isInteger){
         while (true) {
             System.out.print(prompt);
             String input = sc.nextLine().trim();
@@ -33,15 +22,41 @@ public class ValidationInput {
                 System.out.println("Lỗi: Định dạng không hợp lệ! Vui lòng nhập số.");
             }
         }
-
     }
 
-    public static double getValidDouble(String prompt,double min,boolean isInterger){
-        return getValidDouble(prompt,min,Double.MAX_VALUE,isInterger);
+    public static boolean isValidDouble(double value, double min, double max, boolean isInteger) {
+        if (Double.isNaN(value) || Double.isInfinite(value)) return false;
+        if (isInteger && value % 1 != 0) return false;
+        if (value < min || value > max) return false;
+        return true;
     }
 
-    public static double getValidDouble(String prompt,boolean isInterger){
-        return getValidDouble(prompt,-Double.MAX_VALUE,Double.MAX_VALUE,isInterger);
+    public static boolean isValidString(String value) {
+        return value != null && !value.isBlank();
+    }
+
+    public static double getValidDouble(String prompt, double min, double max) {
+        return getNumber(prompt,min,max,false);
+    }
+
+
+    public static double getValidDouble(String prompt,double min){
+        return getValidDouble(prompt,min,Double.MAX_VALUE);
+    }
+
+    public static double getValidDouble(String prompt){
+        return getValidDouble(prompt,-Double.MAX_VALUE,Double.MAX_VALUE);
+    }
+
+    public static int getValidInt(String prompt,int min,int max){
+        return (int)getNumber(prompt,min,max,true);
+    }
+
+    public static int getValidInt(String prompt,int min){
+        return getValidInt(prompt,min,Integer.MAX_VALUE);
+    }
+    public static int getValidInt(String prompt){
+        return getValidInt(prompt,-Integer.MAX_VALUE,Integer.MAX_VALUE);
     }
 
     public static String getValidString(String prompt){
@@ -49,6 +64,7 @@ public class ValidationInput {
         do {
             System.out.print(prompt);
             input = sc.nextLine().trim();
+
         }while (!isValidString(input));
         return input;
     }

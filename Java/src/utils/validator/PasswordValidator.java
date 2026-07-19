@@ -4,6 +4,6 @@ import java.util.regex.Pattern;
 
 public class PasswordValidator {
     public static boolean isValidPassWord(String input){
-        return Pattern.matches(RegexConstant.PASSWORD,input);
+        return  ValidationInput.isValidString(input) && Pattern.matches(RegexConstant.PASSWORD,input);
     }
 }

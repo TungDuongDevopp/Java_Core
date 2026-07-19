@@ -4,6 +4,6 @@ import java.util.regex.Pattern;
 
 public class IndentityValidator {
     public static boolean isValidIdentity(String input){
-        return Pattern.matches(RegexConstant.CCCD,input);
+        return ValidationInput.isValidString(input) && Pattern.matches(RegexConstant.CCCD,input);
     }
 }

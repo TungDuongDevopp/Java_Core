@@ -18,7 +18,7 @@ public class Lab7 {
     | 5. Thoát                                |
     +-----------------------------------------+
     """);
-            int choice = (int) ValidationInput.getValidDouble("Mời bạn nhập số: ",1,5,true);
+            int choice = ValidationInput.getValidInt("Mời bạn nhập số: ",1,5);
             switch (choice){
                 case 1:
                     String identity = ValidationInput.getValidString("Mời nhập CCCD: ");

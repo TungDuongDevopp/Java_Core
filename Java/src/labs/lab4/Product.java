@@ -1,4 +1,5 @@
 package labs.lab4;
+import utils.validator.NameValidator;
 import utils.validator.ValidationInput;
 
 public class Product {
@@ -42,8 +43,8 @@ public class Product {
     }
 
     public void setName(String name) {
-        if(!ValidationInput.isValidString(name)){
-            throw new IllegalArgumentException("Tên sản phẩm không được bỏ trống");
+        if(!NameValidator.isValidName(name)){
+            throw new IllegalArgumentException("Name không hợp lệ!");
         }
         this.name = name;
     }

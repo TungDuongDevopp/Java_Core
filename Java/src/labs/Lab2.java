@@ -15,12 +15,12 @@ public class Lab2 {
     +-----------------------------------------+
     """);
         menuLoop: while(true){
-            int choice = (int) ValidationInput.getValidDouble("Mời bạn nhập số: ",1,4,true);
+            int choice =  ValidationInput.getValidInt("Mời bạn nhập số: ",1,4);
             switch (choice){
                 case 1:
                     int a,b;
-                    a = (int) ValidationInput.getValidDouble("Mời bạn nhập só thứ nhất: ",true);
-                    b = (int) ValidationInput.getValidDouble("Mời bạn nhập só thứ hai: ",true);
+                    a = ValidationInput.getValidInt("Mời bạn nhập só thứ nhất: ");
+                    b = ValidationInput.getValidInt("Mời bạn nhập só thứ hai: ");
                     double result = timNghiemBacNhat(a,b);
                     if(result==Double.POSITIVE_INFINITY) System.out.print("Phương trình vô số nghiệm!");
                     else if (result==Double.NaN) {
@@ -32,14 +32,14 @@ public class Lab2 {
                     break;
                 case 2:
                     int a1,b1,c1;
-                    a1 = (int) ValidationInput.getValidDouble("Mời bạn nhập só thứ nhất: ",true);
-                    b1 = (int) ValidationInput.getValidDouble("Mời bạn nhập só thứ hai: ",true);
-                    c1 = (int) ValidationInput.getValidDouble("Mời bạn nhập só thứ ba: ",true);
+                    a1 = ValidationInput.getValidInt("Mời bạn nhập só thứ nhất: ");
+                    b1 = ValidationInput.getValidInt("Mời bạn nhập só thứ hai: ");
+                    c1 = ValidationInput.getValidInt("Mời bạn nhập só thứ ba: ");
                     timNghiemBacHai(a1,b1,c1);
                     break;
                 case 3:
                     int soDien;
-                    soDien = (int) ValidationInput.getValidDouble("Mời bạn nhập số điện: ",0,true);
+                    soDien = ValidationInput.getValidInt("Mời bạn nhập số điện: ",0);
                     double sotien= tinhTienDien(soDien);
                     System.out.format("Số tiền bạn phải trả là: %.1f",sotien);
                     break;

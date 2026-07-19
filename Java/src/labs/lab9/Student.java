@@ -27,7 +27,7 @@ public class Student extends Person{
     @Override
     public void input() {
         super.input();
-        setMark(ValidationInput.getValidDouble("Mời bạn nhập điểm: ", 0, 10, false));
+        setMark(ValidationInput.getValidDouble("Mời bạn nhập điểm: ", 0, 10));
     }
 
     public String getGrade(){
